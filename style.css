@@ -14,8 +14,24 @@
   color: var(--color-c);
 }
 
+#container,
+.row {
+  display: flex;
+  gap: 2px;
+}
+
+.row,
 .tile {
-  height: 3em;
-  width: 3em;
+  flex: none;
+}
+
+#container {
+  flex-direction: column-reverse;
+}
+
+.row {
+}
+
+.tile {
   background-color: white;
 }
