@@ -1,12 +1,8 @@
-/*
-Color pallete:
-https://colorhunt.co/palette/4323232f57555a9690e0d9d9
-#432323
-#2F5755
-#5A9690
-#E0D9D9
-*/
 :root {
+  /*
+  Color pallete:
+  https://colorhunt.co/palette/4323232f57555a9690e0d9d9
+  */
   --color-a: #e0d9d9;
   --color-b: #5a9690;
   --color-c: #2f5755;
@@ -16,4 +12,10 @@ https://colorhunt.co/palette/4323232f57555a9690e0d9d9
 * {
   background-color: var(--color-a);
   color: var(--color-c);
+}
+
+.tile {
+  height: 3em;
+  width: 3em;
+  background-color: white;
 }
