@@ -1,9 +1,6 @@
-/*
-Use Flexbox to make the divs appear as a grid (versus just one on each line).
-Despite the name, do not be tempted to research or use CSS Grid, 
-  as it will be taught in a later lesson after the foundations path.
-This project is an opportunity specifically to practice Flexbox!
-*/
+// TODO: Center the `container`
+// TODO: Center the title
+// TODO: Make the gap size between tiles dynamic with a `max` value but no `min` value
 
 const TILE_WIDTH = 3;
 const TILE_HEIGHT = TILE_WIDTH;
