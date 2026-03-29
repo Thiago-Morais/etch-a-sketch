@@ -51,6 +51,7 @@ function createTile() {
 
 function darkenTile(tile) {
   tile.style.backgroundColor = DARKER_COLOR;
+  tile.style.border = "none";
 }
 
 function createRowList(tilesGrid) {

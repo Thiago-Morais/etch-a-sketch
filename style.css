@@ -7,11 +7,15 @@
   --color-b: #5a9690;
   --color-c: #2f5755;
   --color-d: #432323;
+  --bg-color: var(--color-a);
 }
 
 * {
-  background-color: var(--color-a);
   color: var(--color-c);
+}
+
+body {
+  background-color: var(--bg-color);
 }
 
 #title {
@@ -21,7 +25,6 @@
 #container,
 .row {
   display: flex;
-  gap: 2px;
 }
 
 .row,
@@ -38,4 +41,6 @@
 
 .tile {
   background-color: white;
+  border: 1.5px solid var(--bg-color);
+  box-sizing: border-box;
 }
