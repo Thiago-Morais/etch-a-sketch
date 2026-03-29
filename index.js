@@ -1,37 +1,54 @@
 // TODO: Make the gap size between tiles dynamic with a `max` value but no `min` value
 
-const TILE_WIDTH = 3;
-const TILE_HEIGHT = TILE_WIDTH;
-const tileSideCount = 16;
-const tileTotalCount = tileSideCount * tileSideCount;
 const DARKER_COLOR = "#432323";
 
-const tilesGrid = createTileGrid();
-const rowList = createRowList(tilesGrid);
-addRowsToContainer(rowList);
+resizeGridWith(16);
 
-function createTileGrid() {
+function resizeGrid() {
+  const message = `Type a new size`;
+  const sizeText = prompt(message, 16);
+  const size = +sizeText;
+  resizeGridWith(size);
+}
+
+function resizeGridWith(size) {
+  const container = document.querySelector("#container");
+  container.textContent = "";
+  const tilesGrid = createTileGrid(size);
+  const rowList = createRowList(tilesGrid);
+  addRowsToContainer(rowList);
+}
+
+function createTileGrid(gridSize) {
+  const tileSize = getTileSizeFromGridSize(gridSize);
   const tileGrid = [];
-  for (let i = 0; i < tileSideCount; i++) {
+  for (let i = 0; i < gridSize; i++) {
     tileGrid[i] = [];
-    for (let j = 0; j < tileSideCount; j++) {
-      tileGrid[i][j] = createTile();
+    for (let j = 0; j < gridSize; j++) {
+      tileGrid[i][j] = createTile(tileSize);
     }
   }
   return tileGrid;
 }
 
-function createTile() {
+function getTileSizeFromGridSize(gridSize) {
+  const boundingSize = window.innerWidth / 2;
+  const tileSize = boundingSize / gridSize;
+  return tileSize > 100 ? 100 : tileSize;
+}
+
+function createTile(tileSize) {
   const tile = document.createElement("div");
   tile.classList.add("tile");
-  tile.style.height = `${TILE_HEIGHT}em`;
-  tile.style.width = `${TILE_WIDTH}em`;
+  tile.style.height = `${tileSize}px`;
+  tile.style.width = `${tileSize}px`;
   tile.addEventListener("mouseenter", () => darkenTile(tile));
   return tile;
 }
 
 function darkenTile(tile) {
   tile.style.backgroundColor = DARKER_COLOR;
+  tile.style.border = "none";
 }
 
 function createRowList(tilesGrid) {
