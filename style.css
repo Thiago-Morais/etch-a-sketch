@@ -1,0 +1,41 @@
+:root {
+  /*
+  Color pallete:
+  https://colorhunt.co/palette/4323232f57555a9690e0d9d9
+  */
+  --color-a: #e0d9d9;
+  --color-b: #5a9690;
+  --color-c: #2f5755;
+  --color-d: #432323;
+}
+
+* {
+  background-color: var(--color-a);
+  color: var(--color-c);
+}
+
+#title {
+  text-align: center;
+}
+
+#container,
+.row {
+  display: flex;
+  gap: 2px;
+}
+
+.row,
+.tile {
+}
+
+#container {
+  flex-direction: column;
+}
+
+.row {
+  justify-content: center;
+}
+
+.tile {
+  background-color: white;
+}
