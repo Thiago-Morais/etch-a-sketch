@@ -1,19 +1,5 @@
 // TODO: Make the gap size between tiles dynamic with a `max` value but no `min` value
-/* 
-  TODO: Add a button on the top of the screen that will send the user a
-    popup asking for the number of squares per side for the new grid.
-  Once entered, the existing grid should be removed, and a new grid should
-    be generated in the same total space as before (e.g., 960px wide) so
-    that you’ve got a new sketch pad.
-*/
-/*
-  - Update the size of the tiles
-    - We need to have a max size for the entire grid and calculate the tile
-      size based on that
-*/
 
-const TILE_WIDTH = 3;
-const TILE_HEIGHT = TILE_WIDTH;
 const DARKER_COLOR = "#432323";
 
 resizeGridWith(16);
@@ -33,22 +19,29 @@ function resizeGridWith(size) {
   addRowsToContainer(rowList);
 }
 
-function createTileGrid(size) {
+function createTileGrid(gridSize) {
+  const tileSize = getTileSizeFromGridSize(gridSize);
   const tileGrid = [];
-  for (let i = 0; i < size; i++) {
+  for (let i = 0; i < gridSize; i++) {
     tileGrid[i] = [];
-    for (let j = 0; j < size; j++) {
-      tileGrid[i][j] = createTile();
+    for (let j = 0; j < gridSize; j++) {
+      tileGrid[i][j] = createTile(tileSize);
     }
   }
   return tileGrid;
 }
 
-function createTile() {
+function getTileSizeFromGridSize(gridSize) {
+  const boundingSize = window.innerWidth / 2;
+  const tileSize = boundingSize / gridSize;
+  return tileSize > 100 ? 100 : tileSize;
+}
+
+function createTile(tileSize) {
   const tile = document.createElement("div");
   tile.classList.add("tile");
-  tile.style.height = `${TILE_HEIGHT}em`;
-  tile.style.width = `${TILE_WIDTH}em`;
+  tile.style.height = `${tileSize}px`;
+  tile.style.width = `${tileSize}px`;
   tile.addEventListener("mouseenter", () => darkenTile(tile));
   return tile;
 }
