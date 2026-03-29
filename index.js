@@ -1,4 +1,23 @@
 // TODO: Make the gap size between tiles dynamic with a `max` value but no `min` value
+/* 
+  TODO: Add a button on the top of the screen that will send the user a
+    popup asking for the number of squares per side for the new grid.
+  Once entered, the existing grid should be removed, and a new grid should
+    be generated in the same total space as before (e.g., 960px wide) so
+    that you’ve got a new sketch pad.
+*/
+/*
+  - Add a button to the top of the screen
+    - Use "Set grid size" as text
+    - The button should trigger a `resizeGrid` function
+  - `resizeGrid` should:
+    - Have the size as parameter
+    - Delete the previous grid
+    - Create the new grid
+  - Update the size of the tiles
+    - We need to have a max size for the entire grid and calculate the tile
+      size based on that
+*/
 
 const TILE_WIDTH = 3;
 const TILE_HEIGHT = TILE_WIDTH;
