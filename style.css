@@ -22,13 +22,10 @@
 .row {
   display: flex;
   gap: 2px;
-  align-items: center;
-  justify-content: center;
 }
 
 .row,
 .tile {
-  flex: none;
 }
 
 #container {
@@ -36,6 +33,7 @@
 }
 
 .row {
+  justify-content: center;
 }
 
 .tile {
