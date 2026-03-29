@@ -7,9 +7,6 @@
     that you’ve got a new sketch pad.
 */
 /*
-  - Add a button to the top of the screen
-    - Use "Resize Grid" as text
-    - The button should trigger a `resizeGrid` function
   - `resizeGrid` should:
     - Have the size as parameter
     - Delete the previous grid
@@ -77,4 +74,8 @@ function addRowsToContainer(rowList) {
   for (let i = 0; i < rowList.length; i++) {
     container.appendChild(rowList[i]);
   }
+}
+
+function resizeGrid() {
+  console.log("resize");
 }
