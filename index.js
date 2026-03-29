@@ -4,6 +4,7 @@ const TILE_WIDTH = 3;
 const TILE_HEIGHT = TILE_WIDTH;
 const tileSideCount = 16;
 const tileTotalCount = tileSideCount * tileSideCount;
+const DARKER_COLOR = "#432323";
 
 const tilesGrid = createTileGrid();
 const rowList = createRowList(tilesGrid);
@@ -25,7 +26,12 @@ function createTile() {
   tile.classList.add("tile");
   tile.style.height = `${TILE_HEIGHT}em`;
   tile.style.width = `${TILE_WIDTH}em`;
+  tile.addEventListener("mouseenter", () => darkenTile(tile));
   return tile;
+}
+
+function darkenTile(tile) {
+  tile.style.backgroundColor = DARKER_COLOR;
 }
 
 function createRowList(tilesGrid) {
