@@ -8,7 +8,7 @@
 */
 /*
   - Add a button to the top of the screen
-    - Use "Set grid size" as text
+    - Use "Resize Grid" as text
     - The button should trigger a `resizeGrid` function
   - `resizeGrid` should:
     - Have the size as parameter
