@@ -5,22 +5,50 @@ const TILE_HEIGHT = TILE_WIDTH;
 const tileSideCount = 16;
 const tileTotalCount = tileSideCount * tileSideCount;
 
-const container = document.querySelector("#container");
-const tiles = [];
-const tileRows = [];
-for (let i = 0; i < tileSideCount; i++) {
+const tilesGrid = createTileGrid();
+const rowList = createRowList(tilesGrid);
+addRowsToContainer(rowList);
+
+function createTileGrid() {
+  const tileGrid = [];
+  for (let i = 0; i < tileSideCount; i++) {
+    tileGrid[i] = [];
+    for (let j = 0; j < tileSideCount; j++) {
+      tileGrid[i][j] = createTile();
+    }
+  }
+  return tileGrid;
+}
+
+function createTile() {
+  const tile = document.createElement("div");
+  tile.classList.add("tile");
+  tile.style.height = `${TILE_HEIGHT}em`;
+  tile.style.width = `${TILE_WIDTH}em`;
+  return tile;
+}
+
+function createRowList(tilesGrid) {
+  const rowList = [];
+  for (let i = 0; i < tilesGrid.length; i++) {
+    const tilesList = tilesGrid[i];
+    rowList[i] = createRow(tilesList);
+  }
+  return rowList;
+}
+
+function createRow(tiles) {
   const row = document.createElement("div");
   row.classList.add("row");
-  tiles[i] = [];
-
-  for (let j = 0; j < tileSideCount; j++) {
-    const tile = document.createElement("div");
-    tile.classList.add("tile");
-    tile.style.height = `${TILE_HEIGHT}em`;
-    tile.style.width = `${TILE_WIDTH}em`;
-    tiles[i][j] = tile;
-    row.appendChild(tile);
+  for (let i = 0; i < tiles.length; i++) {
+    row.appendChild(tiles[i]);
   }
-  container.appendChild(row);
-  tileRows.push(row);
+  return row;
+}
+
+function addRowsToContainer(rowList) {
+  const container = document.querySelector("#container");
+  for (let i = 0; i < rowList.length; i++) {
+    container.appendChild(rowList[i]);
+  }
 }
