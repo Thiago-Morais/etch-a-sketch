@@ -7,10 +7,6 @@
     that you’ve got a new sketch pad.
 */
 /*
-  - `resizeGrid` should:
-    - Have the size as parameter
-    - Delete the previous grid
-    - Create the new grid
   - Update the size of the tiles
     - We need to have a max size for the entire grid and calculate the tile
       size based on that
@@ -18,19 +14,30 @@
 
 const TILE_WIDTH = 3;
 const TILE_HEIGHT = TILE_WIDTH;
-const tileSideCount = 16;
-const tileTotalCount = tileSideCount * tileSideCount;
 const DARKER_COLOR = "#432323";
 
-const tilesGrid = createTileGrid();
-const rowList = createRowList(tilesGrid);
-addRowsToContainer(rowList);
+resizeGridWith(16);
 
-function createTileGrid() {
+function resizeGrid() {
+  const message = `Type a new size`;
+  const sizeText = prompt(message, 16);
+  const size = +sizeText;
+  resizeGridWith(size);
+}
+
+function resizeGridWith(size) {
+  const container = document.querySelector("#container");
+  container.textContent = "";
+  const tilesGrid = createTileGrid(size);
+  const rowList = createRowList(tilesGrid);
+  addRowsToContainer(rowList);
+}
+
+function createTileGrid(size) {
   const tileGrid = [];
-  for (let i = 0; i < tileSideCount; i++) {
+  for (let i = 0; i < size; i++) {
     tileGrid[i] = [];
-    for (let j = 0; j < tileSideCount; j++) {
+    for (let j = 0; j < size; j++) {
       tileGrid[i][j] = createTile();
     }
   }
@@ -74,8 +81,4 @@ function addRowsToContainer(rowList) {
   for (let i = 0; i < rowList.length; i++) {
     container.appendChild(rowList[i]);
   }
-}
-
-function resizeGrid() {
-  console.log("resize");
 }
