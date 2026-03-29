@@ -18,6 +18,8 @@
 .row {
   display: flex;
   gap: 2px;
+  align-items: center;
+  justify-content: center;
 }
 
 .row,
@@ -26,7 +28,7 @@
 }
 
 #container {
-  flex-direction: column-reverse;
+  flex-direction: column;
 }
 
 .row {

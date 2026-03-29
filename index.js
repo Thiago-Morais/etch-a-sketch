@@ -1,4 +1,3 @@
-// TODO: Center the `container`
 // TODO: Center the title
 // TODO: Make the gap size between tiles dynamic with a `max` value but no `min` value
 
